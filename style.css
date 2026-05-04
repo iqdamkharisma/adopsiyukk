@@ -1,0 +1,403 @@
+/* --- Pengaturan Dasar --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #121211 0%, #27275c 100%);
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Navigasi --- */
+header {
+    background-color: rgba(18, 18, 17, 0.9);
+    backdrop-filter: blur(5px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 15px 50px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.logo .highlight {
+    color: #ff9f43;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #cccccc;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links .active {
+    color: #ff9f43;
+}
+
+.btn-login {
+    background-color: #ff9f43;
+    color: #ffffff !important;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.btn-login:hover {
+    background-color: #e08b35;
+}
+
+/* --- Hero Section --- */
+.hero {
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.hero-content h2 {
+    font-size: 40px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    color: #dddddd;
+}
+
+.btn-primary {
+    background-color: #ff9f43;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 32px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #e08b35;
+}
+
+/* --- Bagian Pencarian --- */
+.search-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px 40px 20px;
+}
+
+.search-box {
+    display: flex;
+    background: #ffffff;
+    padding: 8px;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    outline: none;
+    font-size: 15px;
+    color: #333;
+}
+
+.btn-search {
+    background-color: #27275c;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-search:hover {
+    background-color: #1c1c44;
+}
+
+/* --- Bagian Daftar Hewan --- */
+.pet-list {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px 60px 20px;
+    width: 100%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.pet-grid {
+    display: grid;
+    /* Membuat 3 kolom sejajar, ukurannya mengecil sedikit agar kartu lebih kecil */
+    grid-template-columns: repeat(3, minmax(250px, 1fr)); 
+    gap: 20px; /* Jarak antar kartu */
+    justify-content: center;
+    max-width: 1000px; /* Membatasi lebar grid agar kartu tidak terlalu lebar di layar besar */
+    margin: 0 auto;
+}
+
+.pet-card {
+    background-color: #27275c;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Memposisikan konten di tengah */
+    text-align: center;
+    padding-top: 15px; /* Memberi jarak atas */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.pet-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* --- Pengaturan Rasio Gambar 1:1 --- */
+.image-container {
+    width: 100%;
+    height: 220px; /* <--- Diubah ukurannya menjadi lebih kecil dan berbentuk persegi 1:1 */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pet-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Perbaikan Kartu Hewan (Pet Card) --- */
+
+.pet-grid {
+    display: grid;
+    /* Membuat 3 kolom sejajar, ukurannya mengecil sedikit agar kartu lebih kecil */
+    grid-template-columns: repeat(3, minmax(250px, 1fr)); 
+    gap: 20px; /* Jarak antar kartu */
+    justify-content: center;
+    max-width: 1000px; /* Membatasi lebar grid agar kartu tidak terlalu lebar di layar besar */
+    margin: 0 auto;
+}
+
+.pet-card {
+    background-color: #27275c;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Memposisikan konten di tengah */
+    text-align: center;
+    padding-top: 15px; /* Memberi jarak atas */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* --- KODE UTAMA UNTUK GAMBAR 1:1 DAN KECIL --- */
+
+.image-wrapper {
+    /* Tentukan ukuran kotak gambar di sini. Misal 150px agar terlihat kecil. */
+    width: 150px; 
+    height: 150px; /* Harus sama dengan width agar 1:1 */
+    
+    border-radius: 10px; /* Membuat sudut kotak gambar membulat */
+    overflow: hidden; /* Memotong gambar yang keluar dari kotak */
+    margin-bottom: 10px; /* Jarak kotak gambar ke teks di bawahnya */
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover adalah kunci agar gambar memenuhi kotak tanpa gepeng */
+    object-fit: cover; 
+    object-position: center; /* Memastikan bagian tengah gambar yang terlihat */
+}
+
+/* --- Penyesuaian Info Teks --- */
+
+.pet-info {
+    padding: 0 15px 15px 15px;
+    width: 100%;
+}
+
+.pet-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.pet-breed {
+    color: #ff9f43; /* Warna oranye untuk ras */
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+}
+
+.pet-location {
+    font-size: 0.85rem;
+    color: #aaaaaa;
+    margin-bottom: 12px;
+}
+
+.btn-card {
+    background: transparent;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.btn-card:hover {
+    background-color: #ffffff;
+    color: #27275c;
+}
+/* --- Footer --- */
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+    font-size: 14px;
+    color: #aaaaaa;
+}
+
+.image-wrapper {
+    /* Tentukan ukuran kotak gambar di sini. Misal 150px agar terlihat kecil. */
+    width: 150px; 
+    height: 150px; /* Harus sama dengan width agar 1:1 */
+    
+    border-radius: 10px; /* Membuat sudut kotak gambar membulat */
+    overflow: hidden; /* Memotong gambar yang keluar dari kotak */
+    margin-bottom: 10px; /* Jarak kotak gambar ke teks di bawahnya */
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover adalah kunci agar gambar memenuhi kotak tanpa gepeng */
+    object-fit: cover; 
+    object-position: center; /* Memastikan bagian tengah gambar yang terlihat */
+}
+
+/* --- Halaman Cari Hewan --- */
+.search-header {
+    text-align: center;
+    padding: 40px 20px 10px 20px;
+}
+
+.search-header h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.search-header p {
+    color: #dddddd;
+}
+
+/* Bagian Filter */
+.filter-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 0.08);
+    padding: 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 900px;
+    align-items: flex-end;
+}
+
+.filter-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 200px;
+}
+
+.filter-box label {
+    font-size: 13px;
+    color: #ff9f43;
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.filter-box input, 
+.filter-box select {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #1a1a1a;
+    color: #ffffff;
+    outline: none;
+    font-size: 14px;
+}
+
+.btn-apply-filter {
+    background-color: #ff9f43;
+    color: #ffffff;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    height: 44px;
+}
+
+.btn-apply-filter:hover {
+    background-color: #e08b35;
+}
+
+textarea {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

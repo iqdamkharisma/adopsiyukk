@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cari Hewan - AdopsiYuk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Adopsi<span class="highlight">Yuk</span></h1>
+            <ul class="nav-links">
+                <li><a href="beranda.html">Beranda</a></li>
+                <li><a href="cari-hewan.html" class="active">Cari Hewan</a></li>
+                <li><a href="tentang-kami.html">Tentang Kami</a></li>
+                <li><a href="#" class="btn-login">Masuk</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-header">
+            <h2>Temukan Teman Terbaikmu</h2>
+            <p>Gunakan filter di bawah ini untuk mencari hewan peliharaan yang sesuai dengan kriteria Anda.</p>
+        </section>
+
+        <section class="filter-section">
+            <div class="filter-container">
+                <div class="filter-box">
+                    <label for="search-input">Nama atau Ras</label>
+                    <input type="text" id="search-input" placeholder="Contoh: Kucing Persia">
+                </div>
+                
+                <div class="filter-box">
+                    <label for="category-select">Kategori</label>
+                    <select id="category-select">
+                        <option value="all">Semua Kategori</option>
+                        <option value="cat">Kucing</option>
+                        <option value="dog">Anjing</option>
+                        <option value="bird">Burung</option>
+                        <option value="reptile">Reptil</option>
+                    </select>
+                </div>
+
+                <div class="filter-box">
+                    <label for="location-select">Lokasi</label>
+                    <select id="location-select">
+                        <option value="all">Semua Lokasi</option>
+                        <option value="semparuk">Semparuk</option>
+                        <option value="temajuk">Temajuk</option>
+                        <option value="seburing">Seburing</option>
+                        <option value="pemangkat">Pemangkat</option>
+                        <option value="tebas">Tebas</option>
+                        <option value="selakau">Selakau</option>
+                        <option value="singkawang">Singkawang</option>
+                        <option value="sebawi">Sebawi</option>
+                        <option value="laut-sintete">Laut Sintete</option>
+                        <option value="pontianak">Pontianak</option>
+                        <option value="pantai-bahari-jawai">Pantai Bahari Jawai</option>
+                    </select>
+                </div>
+
+                <button class="btn-apply-filter">Cari Hewan</button>
+            </div>
+        </section>
+
+        <section class="pet-list">
+            <h2 class="section-title">Hewan yang Butuh Rumah Baru</h2>
+            
+            <div class="pet-grid">
+                <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/736x/31/b1/04/31b1049958f183d92a3971495efa7501.jpg" alt="Kucing Ohio">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Kucing Ohio</h3>
+                        <p class="pet-breed">Kampung - 1 Tahun</p>
+                        <p class="pet-location">📍 Semparuk</p>
+                       <a href="detail.html?id=1">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                        
+                    </div>
+                </div>
+
+                <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/736x/fa/17/14/fa1714fcf630f8f7dfbbae111b3052bc.jpg" alt="Anjing Golden">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Arnab Arnab</h3>
+                        <p class="pet-breed">Mix Turtle - 2 Tahun</p>
+                        <p class="pet-location">📍 Temajuk</p>
+                     <a href="detail.html?id=2">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+
+                <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/1200x/33/c7/f4/33c7f49ba91ac8c6d1eb58f92e1a2394.jpg" alt="Kucing Domestik">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Elang Mania</h3>
+                        <p class="pet-breed">Pemburu - 6 Bulan</p>
+                        <p class="pet-location">📍 Semparuk</p>
+                       <a href="detail.html?id=3">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+
+                 <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/736x/a8/7b/9c/a87b9c5999fd4870ae94c90aba9ae634.jpg" alt="Kucing Domestik">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Digidaw</h3>
+                        <p class="pet-breed">Abis Mandi - 11 Bulan</p>
+                        <p class="pet-location">📍 Seburing</p>
+                     <a href="detail.html?id=4">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+
+                 <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/736x/dc/bd/c4/dcbdc441ef6ed2ad12b05d3fcfb2308e.jpg" alt="Kucing Domestik">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Asu Kayang</h3>
+                        <p class="pet-breed">Limit - 3 Bulan</p>
+                        <p class="pet-location">📍 Semparuk</p>
+                      <a href="detail.html?id=5">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+
+                <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/736x/d9/11/09/d911092fe83b5187f67c80887ed0e384.jpg" alt="Kucing Domestik">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Kucing Endemik Pemangkat</h3>
+                        <p class="pet-breed">Sphynx - 1 Semester</p>
+                        <p class="pet-location">📍 Pemangkat</p>
+                      <a href="detail.html?id=6">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+
+                <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/736x/a3/84/d2/a384d2c37e31fc316a51b7ea0f9ee78d.jpg" alt="Kucing Domestik">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Tuanku</h3>
+                        <p class="pet-breed">Mujaer - 5 tahun</p>
+                        <p class="pet-location">📍 Tebas</p>
+                    <a href="detail.html?id=7">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+
+                 <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/736x/6b/85/f3/6b85f3f46651ad9e4e6188f2eca29e5d.jpg" alt="Kucing Domestik">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Ayam Wangsaff</h3>
+                        <p class="pet-breed">Aplikasi - 3 bulan</p>
+                        <p class="pet-location">📍 Selakau</p>
+                       <a href="detail.html?id=8">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+
+                 <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/1200x/0f/86/6c/0f866ce4373f288aca970cae971891fc.jpg" alt="Kucing Domestik">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Icikiwir</h3>
+                        <p class="pet-breed">Motor cadangan - 11 tahun</p>
+                        <p class="pet-location">📍 Singkawang</p>
+                     <a href="detail.html?id=9">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+
+                 <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/736x/06/e8/2d/06e82ddd7c863c949a981f2cd3f85378.jpg" alt="Kucing Domestik">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Pandu Socrates</h3>
+                        <p class="pet-breed">Ayam Jantan Timur - 5 tahun</p>
+                        <p class="pet-location">📍 Sebawi</p>
+                       <a href="detail.html?id=10">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+
+                 <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/736x/35/fb/ee/35fbee0851fea1109fee8a6af8253ad9.jpg" alt="Kucing Domestik">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Aiman Hidayah</h3>
+                        <p class="pet-breed">Monyet - 23 tahun</p>
+                        <p class="pet-location">📍 Pemangkat</p>
+                       <a href="detail.html?id=11">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+
+                 <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/1200x/f4/7e/7b/f47e7b9bf9ef339fa89e9aad00e8a326.jpg" alt="Kucing Domestik">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Ripki</h3>
+                        <p class="pet-breed">Unta Flamingo - 7 tahun</p>
+                        <p class="pet-location">📍 Temajuk</p>
+                       <a href="detail.html?id=12">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+
+                  <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/736x/bb/b6/8e/bbb68e706110cd4566409ab20bebde46.jpg" alt="Kucing Domestik">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Andi Fakultas Perairan</h3>
+                        <p class="pet-breed">Kuda Laut - 3 Bulan</p>
+                        <p class="pet-location">📍 Laut Sintete</p>
+                       <a href="detail.html?id=13">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+
+                <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/1200x/5f/a6/64/5fa664b69568da1c9ce5330bf95facd5.jpg" alt="Kucing Domestik">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Wildan Pengusaha</h3>
+                        <p class="pet-breed">Pinguin Kapuas - 3 Bulan</p>
+                        <p class="pet-location">📍 Pontianak</p>
+                       <a href="detail.html?id=14">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+
+                <div class="pet-card">
+                    <div class="image-wrapper">
+                        <img src="https://i.pinimg.com/736x/7a/16/b9/7a16b91295126da8fbab6104493576e0.jpg" alt="Kucing Domestik">
+                    </div>
+                    <div class="pet-info">
+                        <h3>Anak Buaya</h3>
+                        <p class="pet-breed">Ahmad Crocodile - 10 Hari</p>
+                        <p class="pet-location">📍 Pantai Bahari Jawai</p>
+                      <a href="detail.html?id=15">
+            <button class="btn-card">Lihat Detail</button>
+        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AdopsiYuk. Semua Hak Dilindungi.</p>
+    </footer>
+
+</body>
+</html>

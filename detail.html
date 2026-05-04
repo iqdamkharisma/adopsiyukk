@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Hewan - AdopsiYuk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h1 class="logo">Adopsi<span class="highlight">Yuk</span></h1>
+            <ul class="nav-links">
+                <li><a href="beranda.html">Beranda</a></li>
+                <li><a href="cari-hewan.html">Cari Hewan</a></li>
+                <li><a href="#">Tentang Kami</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="max-width: 800px; margin: 40px auto; padding: 30px; background: rgba(255, 255, 255, 0.08); border-radius: 15px; border: 1px solid rgba(255, 255, 255, 0.1);">
+        <div style="display: flex; gap: 30px; flex-wrap: wrap;">
+            
+            <div style="flex: 1; min-width: 280px;">
+                <img id="pet-image" src="" alt="Foto Hewan" style="width: 100%; height: 320px; border-radius: 10px; object-fit: cover;">
+            </div>
+            
+            <div style="flex: 1; min-width: 280px; display: flex; flex-direction: column; justify-content: center;">
+                <h2 id="pet-name" style="color: #ffffff; margin-bottom: 10px;">Memuat...</h2>
+                <p id="pet-breed" style="color: #ff9f43; font-weight: 500; font-size: 18px; margin-bottom: 5px;">Ras</p>
+                <p id="pet-location" style="color: #bbbbbb; margin-bottom: 20px;">📍 Lokasi</p>
+                
+                <p id="pet-desc" style="color: #dddddd; line-height: 1.6; margin-bottom: 30px;">
+                    Deskripsi lengkap hewan akan muncul di sini...
+                </p>
+
+                <button class="btn-primary" onclick="ajukanAdopsi()" style="padding: 12px 30px; border-radius: 8px; border: none; background: #ff9f43; color: #fff; font-weight: bold; cursor: pointer;">
+                    Ajukan Adopsi
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="adopsi-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 1000;">
+        <div style="background: #1e1e35; padding: 30px; border-radius: 12px; width: 90%; max-width: 450px; text-align: center;">
+            <h3 style="color: #ff9f43; margin-bottom: 15px;">Formulir Adopsi</h3>
+            <p style="color: #ccc; margin-bottom: 20px;">Lengkapi data Anda untuk mengajukan adopsi hewan ini.</p>
+            
+            <form onsubmit="submitAdopsi(event)" style="display: flex; flex-direction: column; gap: 12px;">
+                <input type="text" placeholder="Nama Lengkap Anda" required style="padding: 10px; border-radius: 6px; border: 1px solid #444; background: #111; color: #fff;">
+                <input type="email" placeholder="Email Anda" required style="padding: 10px; border-radius: 6px; border: 1px solid #444; background: #111; color: #fff;">
+                <textarea placeholder="Alasan mengapa Anda ingin mengadopsi hewan ini" rows="3" required style="padding: 10px; border-radius: 6px; border: 1px solid #444; background: #111; color: #fff; resize: none;"></textarea>
+                
+                <button type="submit" style="padding: 10px; border-radius: 6px; border: none; background: #ff9f43; color: #fff; font-weight: bold; cursor: pointer; margin-top: 5px;">Kirim Pengajuan</button>
+                <button type="button" onclick="tutupModal()" style="padding: 8px; border-radius: 6px; border: none; background: #555; color: #fff; cursor: pointer;">Batal</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AdopsiYuk. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script>
+        // Database lengkap untuk semua hewan
+        const daftarHewan = [
+            { id: 1, nama: "Kucing Ohio", ras: "Kampung - 1 Tahun", lokasi: "Semparuk", deskripsi: "Kucing yang sangat aktif, ramah, dan suka bermain. Sehat, sudah divaksin, dan butuh keluarga baru.", gambar: "https://i.pinimg.com/736x/31/b1/04/31b1049958f183d92a3971495efa7501.jpg" },
+            { id: 2, nama: "Arnab Arnab", ras: "Mix Turtle - 2 Tahun", lokasi: "Temajuk", deskripsi: "Kelinci yang unik dengan kebiasaan yang menggemaskan, sangat ramah pada manusia.", gambar: "https://i.pinimg.com/736x/fa/17/14/fa1714fcf630f8f7dfbbae111b3052bc.jpg" },
+            { id: 3, nama: "Elang Mania", ras: "Pemburu - 6 Bulan", lokasi: "Semparuk", deskripsi: "Elang lincah, sangat tangkas, dan cocok untuk menjaga rumah dari tikus.", gambar: "https://i.pinimg.com/1200x/33/c7/f4/33c7f49ba91ac8c6d1eb58f92e1a2394.jpg" },
+            { id: 4, nama: "Digidaw", ras: "Abis Mandi - 11 Bulan", lokasi: "Seburing", deskripsi: "Hewan yang penurut dan suka bersantai di tempat yang hangat.", gambar: "https://i.pinimg.com/736x/a8/7b/9c/a87b9c5999fd4870ae94c90aba9ae634.jpg" },
+            { id: 5, nama: "Asu Kayang", ras: "Limit - 3 Bulan", lokasi: "Semparuk", deskripsi: "Peliharaan yang atraktif, lucu, dan penuh dengan kejutan di setiap aksinya.", gambar: "https://i.pinimg.com/736x/dc/bd/c4/dcbdc441ef6ed2ad12b05d3fcfb2308e.jpg" },
+            { id: 6, nama: "Kucing Endemik Pemangkat", ras: "Sphynx - 1 Semester", lokasi: "Pemangkat", deskripsi: "Kucing yang tidak berbulu tapi sangat penyayang dan unik.", gambar: "https://i.pinimg.com/736x/d9/11/09/d911092fe83b5187f67c80887ed0e384.jpg" },
+            { id: 7, nama: "Tuanku", ras: "Mujaer - 5 tahun", lokasi: "Tebas", deskripsi: "Kucing yang tenang dan cocok untuk dijadikan hiasan serta relaksasi di rumah.", gambar: "https://i.pinimg.com/736x/a3/84/d2/a384d2c37e31fc316a51b7ea0f9ee78d.jpg" },
+            { id: 8, nama: "Ayam Wangsaff", ras: "Aplikasi - 3 bulan", lokasi: "Selakau", deskripsi: "Ayam hias yang unik, aktif, dan dapat mengeluarkan suara merdu di pagi hari.", gambar: "https://i.pinimg.com/736x/6b/85/f3/6b85f3f46651ad9e4e6188f2eca29e5d.jpg" },
+            { id: 9, nama: "Icikiwir", ras: "Motor cadangan - 11 tahun", lokasi: "Singkawang", deskripsi: "Kendaraan roda dua yang setia menemani perjalanan Anda ke mana saja.", gambar: "https://i.pinimg.com/1200x/0f/86/6c/0f866ce4373f288aca970cae971891fc.jpg" },
+            { id: 10, nama: "Pandu Socrates", ras: "Ayam Jantan Timur - 5 tahun", lokasi: "Sebawi", deskripsi: "Ayam jago yang perkasa, pemberani, dan memiliki jiwa kepemimpinan.", gambar: "https://i.pinimg.com/736x/06/e8/2d/06e82ddd7c863c949a981f2cd3f85378.jpg" },
+            { id: 11, nama: "Aiman Hidayah", ras: "Monyet - 23 tahun", lokasi: "Pemangkat", deskripsi: "Teman yang cerdas, suka meniru, dan sangat aktif bergerak.", gambar: "https://i.pinimg.com/736x/35/fb/ee/35fbee0851fea1109fee8a6af8253ad9.jpg" },
+            { id: 12, nama: "Ripki", ras: "Unta Flamingo - 7 tahun", lokasi: "Temajuk", deskripsi: "Hewan eksotis yang tangguh dan tahan di segala medan perjalanan.", gambar: "https://i.pinimg.com/1200x/f4/7e/7b/f47e7b9bf9ef339fa89e9aad00e8a326.jpg" },
+            { id: 13, nama: "Andi Fakultas Perairan", ras: "Kuda Laut - 3 Bulan", lokasi: "Laut Sintete", deskripsi: "Andi adalah kuda laut yang imut dan cocok untuk menambah koleksi biota air.", gambar: "https://i.pinimg.com/736x/bb/b6/8e/bbb68e706110cd4566409ab20bebde46.jpg" },
+            { id: 14, nama: "Wildan Pengusaha", ras: "Pinguin Kapuas - 3 Bulan", lokasi: "Pontianak", deskripsi: "Penguin yang ramah dingin, suka berenang, dan lincah.", gambar: "https://i.pinimg.com/1200x/5f/a6/64/5fa664b69568da1c9ce5330bf95facd5.jpg" },
+            { id: 15, nama: "Anak Buaya", ras: "Ahmad Crocodile - 10 Hari", lokasi: "Pantai Bahari Jawai", deskripsi: "Hewan yang tangguh, eksotis, dan membutuhkan perawatan khusus.", gambar: "https://i.pinimg.com/736x/7a/16/b9/7a16b91295126da8fbab6104493576e0.jpg" }
+        ];
+
+        // Membaca parameter ID dari URL
+       const urlParams = new URLSearchParams(window.location.search);
+        const petId = urlParams.get('id');
+        const hewan = daftarHewan.find(h => h.id == petId);
+
+        if (hewan) {
+            document.getElementById('pet-name').textContent = hewan.nama;
+            document.getElementById('pet-breed').textContent = hewan.ras;
+            document.getElementById('pet-location').textContent = `📍 ${hewan.lokasi}`;
+            document.getElementById('pet-desc').textContent = hewan.deskripsi;
+            document.getElementById('pet-image').src = hewan.gambar;
+        } else {
+            document.querySelector('main').innerHTML = "<h2 style='text-align:center; color:#fff;'>Hewan Tidak Ditemukan</h2>";
+        }
+
+        // Fungsi untuk Modal
+        function ajukanAdopsi() {
+            document.getElementById('adopsi-modal').style.display = 'flex';
+        }
+
+        function tutupModal() {
+            document.getElementById('adopsi-modal').style.display = 'none';
+        }
+
+        function submitAdopsi(event) {
+            event.preventDefault();
+            alert('Pengajuan Adopsi berhasil dikirim! Pemilik hewan akan menghubungi Anda segera.');
+            tutupModal();
+        }
+    </script>
+</body>
+</html>
